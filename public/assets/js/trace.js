@@ -1,6 +1,6 @@
 // The one drawing language. An agent is an orthogonal step path moving left to right across
 // block height (the x axis is never time). Lines are registered in advance and dashed. The only
-// colour anywhere is a crossing. Every figure is seeded, so every render is the same.
+// color anywhere is a crossing. Every figure is seeded, so every render is the same.
 
 // Mulberry32: small, fast, and good enough for drawing.
 export function rng(seed) {
@@ -234,7 +234,7 @@ export function plate(svg, seed) {
         ticks(pts, xs, o = {}) {
             for (const x of xs) P.sq(x, yAt(pts, x), o.s ?? 3, { fill: o.fill, stroke: o.stroke, sw: o.sw, o: o.o });
         },
-        // A registered line: dashed, labelled in mono.
+        // A registered line: dashed, labeled in mono.
         line(o) {
             P.seg(o.x0, o.y, o.x1, o.y, { dash: o.dash ?? '7 5', o: o.o ?? 0.8, w: o.w ?? 1, cls: o.cls, attrs: o.attrs });
             if (o.label) P.text(o.lx ?? o.x0 + 8, o.y - 8, o.label, { cls: o.lcls ?? 't-ink', ko: true });
@@ -298,7 +298,7 @@ export function plate(svg, seed) {
         flush() {
             svg.innerHTML = out.join('');
             out.length = 0;
-            // Knock-out labels: a ground-coloured plate behind text that sits over traces.
+            // Knock-out labels: a ground-colored plate behind text that sits over traces.
             for (const t of svg.querySelectorAll('text.ko')) {
                 let b;
                 try { b = t.getBBox(); } catch { continue; }
@@ -358,8 +358,8 @@ export function sizeCanvas(canvas, maxDpr = 2) {
     return { ctx, w, h, dpr };
 }
 
-// Colours come from the element's computed custom properties, so one figure serves both grounds.
-export function colours(el) {
+// Colors come from the element's computed custom properties, so one figure serves both grounds.
+export function colors(el) {
     const cs = getComputedStyle(el);
     const v = (n) => cs.getPropertyValue(n).trim();
     return { bg: v('--bg'), fg: v('--fg'), fg2: v('--fg-2'), fg3: v('--fg-3'), rule: v('--rule'), signal: v('--signal') };

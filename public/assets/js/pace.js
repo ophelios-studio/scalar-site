@@ -2,7 +2,7 @@
 // keeps the same pace, and a human review lane with a mark every few hundred blocks. The counter
 // counts this drawing's own marks since its last review mark. Schematic rates, not data.
 
-import { rng, lerp, clamp, sizeCanvas, colours, rgba, whenVisible, reducedMotion } from './trace.js';
+import { rng, lerp, clamp, sizeCanvas, colors, rgba, whenVisible, reducedMotion } from './trace.js';
 
 const RATE = 20;          // blocks per second
 const REVIEW = 640;       // blocks between two human reviews, schematic
@@ -51,7 +51,7 @@ export default function pace(root) {
     let W, H, ctx, col, pxb = 2, m;
     function resize() {
         ({ ctx, w: W, h: H } = sizeCanvas(canvas));
-        col = colours(root);
+        col = colors(root);
         m = clamp(W * 0.0625, 20, 120);
         pxb = W < 760 ? 1.4 : 2;
         draw();

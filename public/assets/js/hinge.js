@@ -4,7 +4,7 @@
 // so the release line crosses the screen from right to left and the ground turns from ink to
 // paper exactly where the line is. The header and the rail turn with it.
 
-import { rng, lerp, walk, simplify, yAt, tickXs, sizeCanvas, colours, rgba, reducedMotion } from './trace.js';
+import { rng, lerp, walk, simplify, yAt, tickXs, sizeCanvas, colors, rgba, reducedMotion } from './trace.js';
 import { setSplit } from './chrome.js';
 
 const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -128,7 +128,7 @@ export default function hinge(root) {
         const stage = root.querySelector('.hinge-stage');
         for (const f of faces) {
             ({ ctx: f.ctx } = sizeCanvas(f.canvas));
-            f.col = colours(f.el);
+            f.col = colors(f.el);
         }
         H = faces[0].canvas.getBoundingClientRect().height || stage.clientHeight;
         build();

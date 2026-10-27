@@ -1,11 +1,11 @@
 // The field: simulated agents moving left to right over block height, in bands of ordinary work
 // with gaps between them. The visitor draws a line. A line counts only from the block it was
 // registered at, so moving it registers a new line from now on; the old one stays in the record.
-// A trace that crosses the current line is marked in signal colour and stays highlighted.
+// A trace that crosses the current line is marked in signal color and stays highlighted.
 //
 // Everything here is simulated on this page from a fixed seed. Nothing is chain data.
 
-import { rng, lerp, clamp, fmt, sizeCanvas, colours, rgba, whenVisible, reducedMotion } from './trace.js';
+import { rng, lerp, clamp, fmt, sizeCanvas, colors, rgba, whenVisible, reducedMotion } from './trace.js';
 
 const BANDS = [[0.05, 0.17], [0.26, 0.47], [0.56, 0.69], [0.78, 0.95]];
 const BLOCKS_PER_SECOND = 10;
@@ -121,7 +121,7 @@ export default function field(root) {
     let W = 0, H = 0, ctx, col, pxb, headX;
     function resize() {
         ({ ctx, w: W, h: H } = sizeCanvas(canvas));
-        col = colours(root);
+        col = colors(root);
         headX = Math.round(W * HEAD);
         pxb = mobile ? 0.9 : clamp(W / 1200, 0.9, 1.5);
         placeLine();
@@ -201,7 +201,7 @@ export default function field(root) {
             ctx.stroke(p);
         }
 
-        // Crossings: the only colour.
+        // Crossings: the only color.
         ctx.fillStyle = col.signal;
         for (const c of crossings) {
             const x = xOf(c.b);
