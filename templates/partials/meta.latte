@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="{$description}">
+<meta name="theme-color" content="{$ground === 'paper' ? '#f6f6f3' : '#0e0e0d'}">
+<meta name="color-scheme" content="{$ground === 'paper' ? 'light' : 'dark'}">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preload" href="{$leafBaseUrl}/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{$leafBaseUrl}/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{$leafBaseUrl}/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{$leafBaseUrl}/assets/css/site.css">
+<link rel="modulepreload" href="{$leafBaseUrl}/assets/js/record.js">
+<link rel="icon" href="{$leafBaseUrl}/favicon.ico" sizes="32x32">
+<link rel="icon" href="{$leafBaseUrl}/assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{$leafBaseUrl}/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="{$leafBaseUrl}/site.webmanifest">
+{var $origin = $leafProductionUrl ?? ''}
+<link n:if="$origin !== ''" rel="canonical" href="{$origin}{$path}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scalar">
+<meta property="og:title" content="{$docTitle}">
+<meta property="og:description" content="{$description}">
+<meta property="og:image" content="{$origin}{$leafBaseUrl}/assets/og/{$og}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta n:if="$origin !== ''" property="og:url" content="{$origin}{$path}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{$origin}{$leafBaseUrl}/assets/og/{$og}">

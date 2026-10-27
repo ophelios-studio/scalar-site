@@ -1,0 +1,17 @@
+{var $other = $ground === 'ink' ? 'paper' : 'ink'}
+<div class="rail" data-rail-wrap>
+    <nav class="chrome-face {$ground}" data-face="base" data-rail aria-label="Blocks of this page">
+        <div class="wrap rail-in">
+            <span class="rail-where"></span>
+            <span class="rail-strip"></span>
+            <span class="rail-hash"></span>
+        </div>
+    </nav>
+    <div class="chrome-face is-copy {$other}" data-face="copy" data-rail aria-hidden="true" inert>
+        <div class="wrap rail-in">
+            <span class="rail-where"></span>
+            <span class="rail-strip"></span>
+            <span class="rail-hash"></span>
+        </div>
+    </div>
+</div>

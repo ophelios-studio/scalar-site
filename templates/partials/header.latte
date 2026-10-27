@@ -1,0 +1,23 @@
+{var $other = $ground === 'ink' ? 'paper' : 'ink'}
+<header class="site-header" data-header>
+    <div class="chrome-face {$ground}" data-face="base">
+        <div class="wrap header-in">
+            <a class="brand" href="{$leafBaseUrl}/" aria-label="Scalar, home">{include 'mark.latte'}<span>Scalar</span></a>
+            <nav class="nav" aria-label="Main">
+                <a href="{$leafBaseUrl}/range/"{if $page === 'range'} aria-current="page"{/if}>Range Chain</a>
+                <a href="{$leafBaseUrl}/live/"{if $page === 'live'} aria-current="page"{/if}>Live Assurance</a>
+                <a class="nav-ext nav-wide" href="https://scalarnet.io/docs/">Docs</a>
+            </nav>
+        </div>
+    </div>
+    <div class="chrome-face is-copy {$other}" data-face="copy" aria-hidden="true" inert>
+        <div class="wrap header-in">
+            <a class="brand" href="{$leafBaseUrl}/" tabindex="-1">{include 'mark.latte'}<span>Scalar</span></a>
+            <div class="nav">
+                <a href="{$leafBaseUrl}/range/" tabindex="-1"{if $page === 'range'} aria-current="page"{/if}>Range Chain</a>
+                <a href="{$leafBaseUrl}/live/" tabindex="-1"{if $page === 'live'} aria-current="page"{/if}>Live Assurance</a>
+                <a class="nav-ext nav-wide" href="https://scalarnet.io/docs/" tabindex="-1">Docs</a>
+            </div>
+        </div>
+    </div>
+</header>

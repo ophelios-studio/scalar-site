@@ -1,0 +1,21 @@
+{var $ground = $ground ?? 'ink'}
+{var $page = $page ?? 'home'}
+{var $path = $path ?? '/'}
+{var $docTitle = $docTitle ?? 'Scalar'}
+<!DOCTYPE html>
+<html lang="en" class="ground-{$ground}" data-page="{$page}">
+<head>
+    {include '../partials/meta.latte', ground: $ground, page: $page, path: $path, description: $description ?? $leafDescription, og: $og ?? 'og-home.png', docTitle: $docTitle}
+    <title>{$docTitle}</title>
+</head>
+<body class="has-rail">
+    <a class="skip" href="#main">Skip to content</a>
+    {include '../partials/header.latte', page: $page, ground: $ground}
+    <main id="main" tabindex="-1">
+        {block content}{/block}
+    </main>
+    {include '../partials/footer.latte', ground: $ground}
+    {include '../partials/rail.latte', ground: $ground}
+    <script type="module" src="{$leafBaseUrl}/assets/js/site.js"></script>
+</body>
+</html>
