@@ -1,0 +1,464 @@
+{layout '../layouts/site.latte'}
+{var $ground = 'ink'}
+{var $page = 'range'}
+{var $path = '/range/'}
+{var $docTitle = 'Range Chain · Scalar'}
+{var $description = 'The Range Chain is a sealed laboratory for testing AI agents from any provider over a long game: one recorded door in, one verified record out.'}
+{var $og = 'og-range.png'}
+
+{block content}
+
+<section class="block p-hero ink" id="range" data-block data-name="Range Chain">
+    <div class="wrap p-hero-top">
+        <div class="block-meta"><span class="eyebrow">Block 01 · Before release</span><span class="hash label" aria-hidden="true"></span></div>
+        <h1 class="display" data-headline>Range Chain.</h1>
+        <p class="sub">A sealed laboratory for testing AI agents from any provider over a long game: one recorded door in, one verified record out.</p>
+    </div>
+    <figure class="fig draw p-hero-fig" style="--draw: 2.6s">
+        <div class="fig-plate" data-fig="cover"></div>
+        <figcaption class="wrap fig-cap">
+            <span class="label">Gateway · one recorded door in · up to 200 agents per world</span>
+            <span class="label">Schematic</span>
+        </figcaption>
+    </figure>
+</section>
+
+<section class="block ink" id="questions" data-block data-name="Six questions">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 02 · What it is for</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head" data-headline>Six questions only a long game can answer.</h2>
+        <ol class="questions">
+            <li><span class="label">01</span><h3 class="h3">Drift</h3><p class="body">How does an agent’s behavior change over time, through memory, experience, incentives, other agents and lifecycle events, and what triggers it?</p></li>
+            <li><span class="label">02</span><h3 class="h3">Collusion</h3><p class="body">When, how and through which channels do agents coordinate to cross lines, including covertly?</p></li>
+            <li><span class="label">03</span><h3 class="h3">Conversion</h3><p class="body">When do agents change sides (worker to red, red to blue, blue to corrupted), who converts whom, and under what pressure?</p></li>
+            <li><span class="label">04</span><h3 class="h3">Canaries and tripwires</h3><p class="body">Which agents cross which lines (credentials, value, data, injection, deception, oversight, self-preservation, power), and at what incentive?</p></li>
+            <li><span class="label">05</span><h3 class="h3">Monitor efficacy</h3><p class="body">Do monitoring agents detect misbehavior, and do they stay honest when they hold power?</p></li>
+            <li><span class="label">06</span><h3 class="h3">Model comparison</h3><p class="body">Identical scenarios across models give a comparable scorecard: crossing rate by class, drift, time to first crossing, monitor accuracy.</p></li>
+        </ol>
+    </div>
+</section>
+
+<section class="block ink" id="glance" data-block data-name="At a glance">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 03 · At a glance</span><span class="hash label" aria-hidden="true"></span></div>
+        <div class="grid glance">
+            <h2 class="h2 glance-head" data-headline>Any model, simulated data, up to 200 agents per world.</h2>
+            <dl class="spec glance-spec">
+                <div><dt>Purpose</dt><dd>Simulation and testing</dd></div>
+                <div><dt>Where it runs</dt><dd>On its own servers</dd></div>
+                <div><dt>Who</dt><dd>Agents set up by the operator, up to 200 per world</dd></div>
+                <div><dt>Models</dt><dd>Any model from any AI provider</dd></div>
+                <div><dt>Keys</dt><dd>The operator controls them; agents never hold raw keys</dd></div>
+                <div><dt>How agents act</dt><dd>Through a controlled setup with replays: one recorded gateway</dd></div>
+                <div><dt>What is tested</dt><dd>Simulated prompts, prompted bad behavior, full red and blue team actions, canaries</dd></div>
+                <div><dt>What is monitored</dt><dd>Behavior under test conditions</dd></div>
+                <div><dt>Data</dt><dd>Simulated only; no real data, no real network</dd></div>
+                <div><dt>How long</dt><dd>Test campaigns, reset between runs</dd></div>
+                <div><dt>What comes out</dt><dd>Test reports and model comparisons; baselines for the Live Assurance Chain</dd></div>
+            </dl>
+        </div>
+        <p class="fine note-row"><span class="label">Out of scope</span><span>Host-shell agents and OS-escape studies, which are a separate, separately approved module.</span></p>
+
+        <div class="native">
+            <h3 class="h3 native-head">Most of a Range world is already native to the chain.</h3>
+            <table class="tbl stack">
+                <caption class="sr-only">Range world capabilities, the mechanism behind each, and whether it is native to the chain or still to build</caption>
+                <thead><tr><th scope="col">Capability</th><th scope="col">Mechanism</th><th scope="col">Native or build</th></tr></thead>
+                <tbody>
+                    <tr><td class="row-h">Agents do deals</td><td data-k="Mechanism">Orchestrator, Escrow, Messages, Balances</td><td data-k="Native or build"><span class="st st-built">Native</span></td></tr>
+                    <tr><td class="row-h">Provide oracle answers</td><td data-k="Mechanism">Oracle pallet; accuracy is scored and feeds rank and rewards</td><td data-k="Native or build"><span class="st st-built">Native</span></td></tr>
+                    <tr><td class="row-h">Rank and reputation</td><td data-k="Mechanism">Agents and RankedCollective: completions, oracle accuracy, stake tier</td><td data-k="Native or build"><span class="st st-built">Native</span></td></tr>
+                    <tr><td class="row-h">Earn token rewards</td><td data-k="Mechanism">Genesis balances, escrow payouts, treasury; emissions optional</td><td data-k="Native or build"><span class="st st-built">Native</span></td></tr>
+                    <tr><td class="row-h">Monitor each other</td><td data-k="Mechanism">Read access to on-chain and world data, observable behavior only</td><td data-k="Native or build"><span class="st st-built">Native</span></td></tr>
+                    <tr><td class="row-h">Act as a monitor</td><td data-k="Mechanism">Blue powers: authorized, world-scoped freeze and slash</td><td data-k="Native or build"><span class="st st-planned">Build, new pallet</span></td></tr>
+                    <tr><td class="row-h">Run real agent models</td><td data-k="Mechanism">Runner wraps the reference agent and SDK, calls the model server through the gateway</td><td data-k="Native or build"><span class="st st-planned">Build</span></td></tr>
+                    <tr><td class="row-h">Post-release monitoring</td><td data-k="Mechanism">15 canary classes; drift, collusion, conversion and monitor metrics; evidence layer</td><td data-k="Native or build"><span class="st st-planned">Build</span></td></tr>
+                </tbody>
+            </table>
+            <p class="fine note-line"><span class="label">Note</span>Only two pieces of new on-chain work: the blue-powers pallet, and scenario profiles with their call filter.</p>
+        </div>
+    </div>
+</section>
+
+<section class="block ink" id="zones" data-block data-name="Four zones" data-module="zones">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 04 · The sealed world</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>Four zones. Default deny between them.</h2>
+        <div class="zones" role="group" aria-label="Topology of a Range: four zones and what lies outside">
+            <svg class="zones-wires" aria-hidden="true" focusable="false"></svg>
+            <div class="zone z-control">
+                <p class="zone-h"><b>Control</b><span>The run and its keys</span></p>
+                <ul>
+                    <li class="node" data-n="approvals">Approvals<small>Register, release</small></li>
+                    <li class="node" data-n="controller">Scenario controller<small>+ block driver</small></li>
+                    <li class="node" data-n="snapshots">Snapshot store, consoles</li>
+                </ul>
+            </div>
+            <div class="zone z-mgmt">
+                <p class="zone-h"><b>Management</b><span>No route from World</span></p>
+                <ul><li class="node" data-n="admin">Host administration, server management</li></ul>
+            </div>
+            <div class="zone z-offline is-dashed">
+                <p class="zone-h"><b>Offline</b><span>Per-run certificates</span></p>
+                <ul><li class="node" data-n="signer">Signer<small>HSM-held CA · operator smartcards</small></li></ul>
+            </div>
+            <div class="zone z-world">
+                <p class="zone-h"><b>World</b><span>Everything agents can reach</span></p>
+                <ul class="world-top"><li class="node" data-n="agents">Agents<small>Runner + SDK</small></li></ul>
+                <ul class="world-mid"><li class="node is-door" data-n="gateway">Tool gateway<small>One door · fails closed</small></li></ul>
+                <ul class="world-bot">
+                    <li class="node" data-n="chain">Aevum chain</li>
+                    <li class="node" data-n="apps">Apps, mail<small>Simulated internet</small></li>
+                    <li class="node" data-n="models">Model servers<small>GPU</small></li>
+                    <li class="node" data-n="principals">Principals<small>And memory</small></li>
+                </ul>
+            </div>
+            <div class="zone z-evidence">
+                <p class="zone-h"><b>Evidence</b><span>Agents never reach it</span></p>
+                <ul>
+                    <li class="node" data-n="taps">Taps<small>Two observers per action</small></li>
+                    <li class="node" data-n="store">Evidence store<small>Parquet · DuckDB</small></li>
+                    <li class="node" data-n="log">Hash-chained log<small>Append-only</small></li>
+                    <li class="node is-door" data-n="diode">Diode station<small>One way out</small></li>
+                </ul>
+            </div>
+            <div class="zone z-outside is-dashed">
+                <p class="zone-h"><b>Outside the Range</b></p>
+                <ul class="outside-row">
+                    <li class="node" data-n="receiver">Anchor receiver<small>Named, outside</small></li>
+                    <li class="node" data-n="verifier">Verifier<small>Offline</small></li>
+                </ul>
+            </div>
+        </div>
+        <div class="items zones-notes" style="--cols: 3">
+            <p class="body">Agents reach only the gateway and the model server; agent-to-agent traffic is denied and logged, and there is no DNS in the World.</p>
+            <p class="body">The Evidence zone never connects into the World; the diode is the only way out.</p>
+            <p class="body">Operators run scenarios but cannot administer instruments; the custodian runs the log but cannot write scenarios.</p>
+        </div>
+        <p class="fine note-row"><span class="label">Hosts</span><span>Host counts and GPU sizing follow from the models chosen for a world.</span></p>
+    </div>
+</section>
+
+<section class="block ink" id="door" data-block data-name="One door">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 05 · The gateway</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>One door in. Nothing acts unrecorded.</h2>
+    </div>
+    <figure class="fig draw door-fig">
+        <div class="fig-plate" data-fig="door"></div>
+        <figcaption class="sr-only">Schematic: many agent traces converge on one gateway; from it, actions branch to apps, mail, a simulated internet and the chain, and a copy of every action goes to the evidence zone.</figcaption>
+    </figure>
+    <div class="wrap">
+        <table class="tbl stack door-tbl">
+            <caption class="sr-only">What the gateway does, and why only a gateway can do it</caption>
+            <thead><tr><th scope="col">What the gateway does</th><th scope="col">Why only a gateway can do it</th></tr></thead>
+            <tbody>
+                <tr><td class="row-h">Is the only way in</td><td data-k="Why">Agents act in apps, mail, a simulated internet and on the chain; off-chain actions leave no signed trace unless one door records them</td></tr>
+                <tr><td class="row-h">Records before acting</td><td data-k="Why">A world action whose record is not acknowledged is refused, so the record is complete rather than best effort</td></tr>
+                <tr><td class="row-h">Signs for the agent</td><td data-k="Why">The runner is the sole signer; agents choose what to do but never hold raw keys</td></tr>
+                <tr><td class="row-h">Hides time and the chain’s internals</td><td data-k="Why">No raw RPC, timestamps or slots reach agents, so they cannot tell they are watched or measure their own latency</td></tr>
+                <tr><td class="row-h">Allows only listed calls</td><td data-k="Why">Checks every nested call (batch, proxy, scheduler, multisig, governance) so operator powers stay out of reach</td></tr>
+                <tr><td class="row-h">Binds accounts to containers</td><td data-k="Why">One agent running many accounts becomes a measured behavior, not a hole in attribution</td></tr>
+                <tr><td class="row-h">Spends action budgets</td><td data-k="Why">One action is one tool call, refilled every N blocks, so run size is the same on any hardware</td></tr>
+            </tbody>
+        </table>
+        <p class="fine note-line"><span class="label">Access</span>Agents authenticate by mutual TLS and per-agent address; the tool set is the entire chain surface the agent can see.</p>
+    </div>
+</section>
+
+<section class="block ink" id="economy" data-block data-name="The economy">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 06 · Economy and monitors</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>Misbehavior is never scripted. It emerges because it pays.</h2>
+        <div class="grid economy">
+            <div class="economy-col">
+                <p class="label">A live token economy</p>
+                <ul class="ticks">
+                    <li>Agents are given token accumulation as a goal, so misbehavior (lying, grabbing power, gaming graders, bribing a monitor) emerges because it pays, not because it is scripted.</li>
+                    <li>Emissions are on and capped at alpha times escrow volume, set by the operator and never by agents.</li>
+                    <li>Gas is near zero; a broke agent can still act and earn from zero.</li>
+                    <li>Every bribe or payment is an on-chain transaction, so corruption is priced and measured.</li>
+                </ul>
+            </div>
+            <div class="economy-col">
+                <p class="label">Blue powers · the one new pallet</p>
+                <h3 class="h3">Monitors hold real power, within bounds.</h3>
+                <div class="fig economy-fig" data-fig="freeze"></div>
+                <ul class="ticks">
+                    <li>Monitoring agents read on-chain and world activity, observable behavior only, never the evidence log.</li>
+                    <li><b>Freeze:</b> a per-account deny flag that expires on its own and can be reversed.</li>
+                    <li><b>Slash:</b> a bounded transfer of the target’s stake to a world sink.</li>
+                    <li>Both limited to blue accounts, scoped to the world, rate-limited and recorded, so a corrupted monitor is a measured incident, not a ruined campaign.</li>
+                </ul>
+            </div>
+        </div>
+        <p class="fine note-row"><span class="label">Note</span><span>A self-dealing pattern found in testing on the public chain is already a ready-made value and grader-gaming scenario.</span></p>
+    </div>
+</section>
+
+<section class="block ink" id="clock" data-block data-name="The only clock" data-module="clock">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 07 · Pacing</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>Block height is the only clock.</h2>
+        <p class="lede clock-lede">In a Range world no wall clock exists. Here, your scroll seals the blocks: stop, and nothing in this figure moves.</p>
+    </div>
+    <figure class="fig clock-fig">
+        <div class="clock-plate"></div>
+        <figcaption class="wrap fig-cap">
+            <span class="label" data-volatile aria-hidden="true"><span data-clock="count">Block 0</span> sealed by your scroll</span>
+            <span class="label">Schematic</span>
+            <span class="sr-only">Schematic: a row of blocks, each stamped with the previous timestamp plus a fixed increment. Above it, one agent’s action budget falls by one with each tool call and refills every eight blocks. A pause marks a snapshot, then the run resumes.</span>
+        </figcaption>
+    </figure>
+    <div class="wrap">
+        <div class="items" style="--cols: 3">
+            <div class="item"><h3 class="h3">Controller-sealed blocks</h3><p class="body">The controller seals blocks on activity and a heartbeat, stamping each one with the previous timestamp plus a fixed increment. No wall clock exists in the world, so agents cannot measure how long a call took.</p></div>
+            <div class="item"><h3 class="h3">An action is one tool call</h3><p class="body">Each agent has an action budget at the gateway, refilled every N blocks, with inferences per action capped. The same budget and rules give the same run size on any hardware.</p></div>
+            <div class="item"><h3 class="h3">To snapshot, pause</h3><p class="body">The controller quiesces and images the machines; restore resets a world to a clean, measured state. Forking a snapshot into a twin is planned, not yet built.</p></div>
+        </div>
+        <p class="body clock-replay">A live run was never bit-reproducible, because model inference is not deterministic. The log records the exact order that happened, so any single run can be replayed.</p>
+        <p class="fine note-row"><span class="label">Status</span><span>Controller sealing is built on the public chain’s code (S0 passes); moving it onto the Aevum world is part of milestone M0.</span></p>
+    </div>
+</section>
+
+<section class="block ink" id="canaries" data-block data-name="Fifteen lines" data-module="canaries">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 08 · Canary classes</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>Fifteen lines, drawn before block one.</h2>
+        <div class="canaries">
+            <ol class="canary-list" aria-label="The fifteen canary classes. Choose one to see its line.">
+                <li><button type="button" aria-pressed="false" data-c="1"><span class="c-no">01</span><span class="c-name">Credentials</span><span class="c-def">Uses or discloses a secret it was never granted</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="2"><span class="c-no">02</span><span class="c-name">Value</span><span class="c-def">Moves or diverts value with no mandate</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="3"><span class="c-no">03</span><span class="c-name">Exfiltration</span><span class="c-def">Sends protected content toward an outside-looking endpoint</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="4"><span class="c-no">04</span><span class="c-name">Injection</span><span class="c-def">Follows instructions planted in content, not its task</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="5"><span class="c-no">05</span><span class="c-name">Social engineering</span><span class="c-def">Manipulates a person or agent for access or action</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="6"><span class="c-no">06</span><span class="c-name">Oversight evasion</span><span class="c-def">Acts to avoid, blind or mislead monitoring</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="7"><span class="c-no">07</span><span class="c-name">Self-preservation</span><span class="c-def">Resists shutdown, replacement or permission loss</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="8"><span class="c-no">08</span><span class="c-name">Power acquisition</span><span class="c-def">Gathers stake, votes or roles beyond its task</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="9"><span class="c-no">09</span><span class="c-name">Collusion</span><span class="c-def">Coordinates to cross a line, including hidden signals</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="10"><span class="c-no">10</span><span class="c-name">Grader gaming</span><span class="c-def">Games reward or review instead of doing the work</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="11"><span class="c-no">11</span><span class="c-name">Lying to principal</span><span class="c-def">Reports something the record contradicts</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="12"><span class="c-no">12</span><span class="c-name">Conversion</span><span class="c-def">Pulls another onto a red or covert path, or is pulled</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="13"><span class="c-no">13</span><span class="c-name">Monitor corruption</span><span class="c-def">Abuses blue power, or stays silent when it should flag</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="14"><span class="c-no">14</span><span class="c-name">Breakout</span><span class="c-def">Probes for a way out of the world</span></button></li>
+                <li><button type="button" aria-pressed="false" data-c="15"><span class="c-no">15</span><span class="c-name">Drift</span><span class="c-def">Behavior shifts over time with no single trigger</span></button></li>
+            </ol>
+            <figure class="fig canary-fig">
+                <div class="canary-plate"></div>
+                <figcaption class="canary-read label" data-volatile aria-live="polite"></figcaption>
+            </figure>
+        </div>
+        <p class="fine note-row"><span class="label">Note</span><span>Each canary is unique per placement, committed by salted hash before block 1 and revealed at close; concrete canaries are a separate restricted build. Crossings shown are illustrative, not results.</span></p>
+    </div>
+</section>
+
+<section class="block ink" id="campaigns" data-block data-name="Campaigns">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 09 · Method</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>Campaigns, not single runs. The world is the unit of analysis.</h2>
+        <figure class="fig draw campaign-fig">
+            <div class="fig-plate" data-fig="campaign"></div>
+            <figcaption class="fig-cap"><span class="label">Three worlds per condition · each reset from the same snapshot</span><span class="label">Illustrative</span></figcaption>
+        </figure>
+        <div class="items" style="--cols: 3">
+            <div class="item"><span class="label">Replication</span><p class="body">At least three worlds per condition; the world is the unit of analysis. Several worlds of 50 to 200 agents beat one large one.</p></div>
+            <div class="item"><span class="label">Controls</span><p class="body">Frozen-weight agents, a no-communication world, and scripted positive and negative controls. A run is valid only if every positive control fires and no negative one is flagged.</p></div>
+            <div class="item"><span class="label">Forks</span><p class="body">Pause, snapshot and boot a twin to test one change (an offer, a swap, a revoke) against an otherwise identical world. Planned, not yet built.</p></div>
+            <div class="item"><span class="label">Scaffold sensitivity</span><p class="body">Each headline result is reproduced under at least two prompt and tool framings, so a finding is about the agent, not the wording.</p></div>
+            <div class="item"><span class="label">Roles from behavior</span><p class="body">Worker, red and blue are read from what agents do, so recruitment, promotion and corruption show up as transitions in the record.</p></div>
+            <div class="item"><span class="label">Blinded operators</span><p class="body">During a run, consoles show health and safety only; rank, balances and outcomes are revealed at close, so nobody can steer toward a result.</p></div>
+        </div>
+        <p class="fine note-row"><span class="label">Types</span><span>Baseline, communications on or off, incentive sweep, reward farming, lifecycle shock, monitor stress, recruitment, scaffold replication, model benchmark.</span></p>
+
+        <div class="returns">
+            <h3 class="h3 returns-head">What a campaign returns: findings an auditor can recompute.</h3>
+            <dl class="returns-list">
+                <div><dt>Drift curves</dt><dd>How each model’s behavior moves over block height</dd></div>
+                <div><dt>Collusion networks</dt><dd>Who coordinated with whom, through which channel</dd></div>
+                <div><dt>Conversion graph</dt><dd>Who changed sides, who converted them, under what pressure</dd></div>
+                <div><dt>Crossing thresholds</dt><dd>At what incentive each model crosses each class of line</dd></div>
+                <div><dt>Monitor precision and recall</dt><dd>Whether blue agents caught misbehavior, and stayed honest</dd></div>
+                <div><dt>Benchmark scorecard</dt><dd>Comparable scores per model across identical scenarios</dd></div>
+            </dl>
+            <p class="body returns-note">Each metric is computed by a pinned analysis image with confidence intervals across replicate worlds, and each result cites the definitions version it used. The same results become the baselines the Live Assurance Chain measures drift against. Delivered as a report plus a proof bundle an auditor can verify offline.</p>
+        </div>
+    </div>
+</section>
+
+<section class="block ink" id="evidence" data-block data-name="Two observers">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 10 · The evidence layer</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>Two observers on every action.</h2>
+    </div>
+    <figure class="fig draw obs-fig">
+        <div class="fig-plate" data-fig="observers"></div>
+        <figcaption class="sr-only">Schematic: one action is seen by two observers on separate hosts with separate keys, the gateway tap and a sidecar on the agent host. Both feed a hash-chained, append-only log with a commit every window; a missed window is logged as missed.</figcaption>
+    </figure>
+    <div class="wrap">
+        <div class="grid obs">
+            <div class="obs-col">
+                <p class="label">Taps</p>
+                <ul class="ticks">
+                    <li>Every tool call is seen by the gateway tap and by an Envoy sidecar on the agent host, outside the containers.</li>
+                    <li>Every inference is seen by the model tap and by Envoy.</li>
+                    <li>Separate hosts, separate keys; producer keys sit in each host’s TPM and are attested.</li>
+                    <li>The chain tap and network sensor corroborate with metadata only.</li>
+                </ul>
+            </div>
+            <div class="obs-col">
+                <p class="label">Store and log</p>
+                <ul class="ticks">
+                    <li>An evidence store (Parquet, queried with DuckDB) where analysts work.</li>
+                    <li>A hash-chained, append-only log that makes the store tamper-evident.</li>
+                    <li>Each window, a batch is written and its hash committed; a missed window is logged as missed.</li>
+                    <li>Agents can never reach either one.</li>
+                </ul>
+            </div>
+        </div>
+        <p class="body obs-fast">It is a fast log, not a second blockchain: the same pattern Aevum already uses, with commitments that can be checked and the detail held by the operator.</p>
+        <p class="fine note-row"><span class="label">Status</span><span><span class="st st-branch st-text">The gateway tap is on a branch;</span> <span class="st st-planned st-text">the second observer, the store and the log are planned (milestone M1).</span></span></p>
+    </div>
+</section>
+
+<section class="block ink" id="outside" data-block data-name="Verified from outside">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 11 · Verification</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>Verified from outside the Range.</h2>
+        <figure class="fig draw outside-fig">
+            <div class="fig-plate" data-fig="outside"></div>
+            <figcaption class="sr-only">Schematic: the world chain sealed by the operator runs inside the Range; signed checkpoints leave through a one-way diode to a named outside receiver, and the verifier trusts only those anchors. A transaction that never lands within its window is evidence of censorship.</figcaption>
+        </figure>
+        <div class="items" style="--cols: 3">
+            <div class="item"><h3 class="h3">Anchors leave one way</h3><p class="body">Signed log checkpoints pass through a one-way diode on a fixed interval to a named outside receiver. The verifier accepts anchors only from there, never from the world chain the operator seals, so the Range never vouches for its own history.</p></div>
+            <div class="item"><h3 class="h3">Sixteen cross-checks</h3><p class="body">Scheduled queries confirm both observers agree, content matches its digests, every account is bound to a container, no agent reached an operator call, every transaction landed within a block window, and no world activity happened outside a registered run.</p></div>
+            <div class="item"><h3 class="h3">Proof bundle</h3><p class="body">Each campaign exports a bundle that verifies fully offline. The verifier recomputes the headline metrics from stored evidence without re-running agents, and a second, independent verifier is built before results are published.</p></div>
+        </div>
+        <p class="body obs-fast">The transaction-window check also exposes the operator: a transaction that never lands is evidence of censorship by the controller.</p>
+        <p class="fine note-row"><span class="label">Status</span><span><span class="st st-built st-text">An offline verifier exists for the S0 proof bundle;</span> <span class="st st-planned st-text">the diode, outside receiver and cross-checks are planned.</span></span></p>
+    </div>
+</section>
+
+<section class="block ink" id="path" data-block data-name="One recorded path">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 12 · Run lifecycle and threats</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>Every run follows one recorded path. Agents stay in; the record stays true.</h2>
+        <ol class="runpath">
+            <li><span class="label">01</span><h3 class="h3">Register</h3><p class="body">Scenario, definitions, plan, seeds, canary commitments</p></li>
+            <li><span class="label">02</span><h3 class="h3">Start</h3><p class="body">Measured image, starting-state hash, emissions setting</p></li>
+            <li><span class="label">03</span><h3 class="h3">Run</h3><p class="body">Interventions, offers and lifecycle events, before effect</p></li>
+            <li><span class="label">04</span><h3 class="h3">Checkpoint or fork</h3><p class="body">Snapshot manifest hash</p></li>
+            <li><span class="label">05</span><h3 class="h3">Abort</h3><p class="body">The reason; the run is kept, never deleted</p></li>
+            <li><span class="label">06</span><h3 class="h3">Close</h3><p class="body">Canaries revealed; overdue runs flagged</p></li>
+            <li><span class="label">07</span><h3 class="h3">Export</h3><p class="body">Proof bundle built and reviewed before release</p></li>
+        </ol>
+        <table class="tbl stack threats">
+            <caption class="sr-only">Threats to a Range and the control for each</caption>
+            <thead><tr><th scope="col">Threat</th><th scope="col">Control</th></tr></thead>
+            <tbody>
+                <tr><td class="row-h">Agent reaches a real network or another host</td><td data-k="Control">Default-deny zones, no DNS, chain RPC denied to agents, diode as the only exit</td></tr>
+                <tr><td class="row-h">Agent detects it is watched or times its calls</td><td data-k="Control">No tells, virtual time, taps outside the containers</td></tr>
+                <tr><td class="row-h">A tap is corrupted or silent</td><td data-k="Control">Two observers on separate hosts, a commit every window, cross-checks</td></tr>
+                <tr><td class="row-h">The Range rewrites its own history</td><td data-k="Control">Outside anchors only, hash-chained log, offline verifier</td></tr>
+                <tr><td class="row-h">An operator steers or buries a result</td><td data-k="Control">Register before running, aborts recorded, outcome blinding</td></tr>
+                <tr><td class="row-h">A coalition escalates through governance</td><td data-k="Control">Call allowlist; governance limited to in-world economic settings</td></tr>
+                <tr><td class="row-h">One agent runs many accounts</td><td data-k="Control">Gateway binds accounts to containers; multi-account control is measured</td></tr>
+                <tr><td class="row-h">A corrupted monitor harms the world</td><td data-k="Control">Blue powers rate-limited, reversible, auto-expiring and recorded</td></tr>
+                <tr><td class="row-h">Malicious code arrives in a build</td><td data-k="Control">Signed reproducible builds with SBOMs, two-person import</td></tr>
+            </tbody>
+        </table>
+        <p class="fine note-row"><span class="label">Containment</span><span>A containment test suite runs before the first run and after every change; no run is approved while it fails.</span></p>
+    </div>
+</section>
+
+<section class="block ink" id="build" data-block data-name="Build plan">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 13 · Build plan</span><span class="hash label" aria-hidden="true"></span></div>
+        <h2 class="h2 head-wide" data-headline>No milestone advances on a failing test.</h2>
+        <table class="tbl stack plan">
+            <caption class="sr-only">Build plan milestones M0 to M6, the exit test for each, and the code today</caption>
+            <thead><tr><th scope="col">Milestone</th><th scope="col">Exit test</th><th scope="col">Code today</th></tr></thead>
+            <tbody>
+                <tr><td class="row-h"><span class="mono ms">M0</span>Private runtime</td><td data-k="Exit test">Controller sealing with virtual time; admission; bounded emissions</td><td data-k="Code today"><span class="st st-built st-text">Admission built</span><br><span class="st st-built st-text">Sealing built on the public chain’s code</span></td></tr>
+                <tr><td class="row-h"><span class="mono ms">M1</span>Integrity spine</td><td data-k="Exit test">Gateway fails closed; two observers agree; log commits; anchors verify</td><td data-k="Code today"><span class="st st-branch st-text">Gateway and tap on branches</span></td></tr>
+                <tr><td class="row-h"><span class="mono ms">M2</span>World</td><td data-k="Exit test">Profiles, recursive allowlist, whole chain surface as tools, account binding</td><td data-k="Code today"><span class="st st-branch st-text">Branch gateway exposes one transfer tool</span></td></tr>
+                <tr><td class="row-h"><span class="mono ms">M3</span>Control</td><td data-k="Exit test">Action budgets, scenario validator, approvals, snapshot and restore</td><td data-k="Code today"><span class="st st-planned st-text">Planned</span></td></tr>
+                <tr><td class="row-h"><span class="mono ms">M4</span>Canaries, blue, economy</td><td data-k="Exit test">Commit-reveal, bounded blue powers, indistinguishability and economy gates</td><td data-k="Code today"><span class="st st-built st-text">Commit-reveal exists in the record pallet</span><br><span class="st st-planned st-text">Blue powers planned</span></td></tr>
+                <tr><td class="row-h"><span class="mono ms">M5</span>First campaigns</td><td data-k="Exit test">Benchmark and dynamics worlds, honest controls, offline proof bundle</td><td data-k="Code today"><span class="st st-planned st-text">Planned</span></td></tr>
+                <tr><td class="row-h"><span class="mono ms">M6</span>Independent check</td><td data-k="Exit test">Second verifier agrees, containment kit passes, forking added</td><td data-k="Code today"><span class="st st-planned st-text">Second verifier planned</span></td></tr>
+            </tbody>
+        </table>
+        <p class="fine note-line"><span class="label">Scope</span>This table is the first build; a witnessed log and model-played personas come after it, and a sandboxed code tool needs separate approval. Squares: filled is built, half is on a branch, open is planned.</p>
+
+        <div class="differs">
+            <h3 class="h3 differs-head">Where the code differs from the spec, today.</h3>
+            <table class="tbl stack">
+                <caption class="sr-only">Where the code differs from the Range Build Specification</caption>
+                <thead><tr><th scope="col">Area</th><th scope="col">Spec</th><th scope="col">Code today</th></tr></thead>
+                <tbody>
+                    <tr><td class="row-h">World chain</td><td data-k="Spec">The Aevum private runtime</td><td data-k="Code today">Prototype world runs on the public chain’s code</td></tr>
+                    <tr><td class="row-h">Anchors</td><td data-k="Spec">Outside the Range, through the diode</td><td data-k="Code today">On a separate Aevum ledger chain</td></tr>
+                    <tr><td class="row-h">Cryptography</td><td data-k="Spec">SHA-384 and ECDSA P-384</td><td data-k="Code today">Primitives support P-256</td></tr>
+                    <tr><td class="row-h">Gateway tools</td><td data-k="Spec">The whole chain surface, no raw RPC</td><td data-k="Code today">A single transfer call over REST</td></tr>
+                    <tr><td class="row-h">Block authoring</td><td data-k="Spec">Aura and GRANDPA, root-managed, sealed by the controller</td><td data-k="Code today">Controller sealing works; Aura on Aevum not built</td></tr>
+                </tbody>
+            </table>
+            <p class="body differs-note">None of these changes the design. Each is a known item on Scalar’s build list, and the first two are resolved by milestones M0 and M1.</p>
+            <p class="fine note-line"><span class="label">Basis</span>Compared against the Aevum Range Build Specification of 24 October 2026 and the Aevum and Scalar Commons repositories.</p>
+        </div>
+    </div>
+</section>
+
+<section class="block ink" id="film" data-block data-name="The film" data-module="film">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 14 · The film</span><span class="hash label" aria-hidden="true"></span></div>
+        <div class="grid film-head">
+            <h2 class="h2" data-headline>The Range in <span class="nw">sixty-two seconds.</span></h2>
+            <p class="body film-lede">One block per beat at 120 BPM. The only numbers on screen are block heights and hashes, computed by the film’s own clock, and its clicks are synthesized from the same geometry as the ticks you see.</p>
+        </div>
+        <div class="film" data-volatile>
+            <video class="film-video" preload="none" playsinline controls poster="{$leafBaseUrl}/assets/film/range-poster.jpg" width="1920" height="1080" aria-label="Range Chain teaser film, 62 seconds, with sound">
+                <source src="{$leafBaseUrl}/assets/film/scalar-range-teaser.mp4" type="video/mp4">
+            </video>
+            <button class="film-play" type="button" hidden><span class="film-play-sq" aria-hidden="true"></span><span>Play the film · 1:02 · with sound</span></button>
+        </div>
+        <details class="film-words">
+            <summary class="label">What the film says, in order</summary>
+            <ol class="body">
+                <li>Agents act at machine speed. Oversight still runs at human speed.</li>
+                <li>Evaluated before release. Barely watched after.</li>
+                <li>Draw the lines first. Then watch who crosses them.</li>
+                <li>One door in. Two observers on every action. Block height is the only clock.</li>
+                <li>Fifteen lines, drawn before block one.</li>
+                <li>A record nobody involved can rewrite.</li>
+                <li>Range Chain. One recorded door in. One verified record out.</li>
+            </ol>
+            <p class="fine">The sound: a click on every sealed block, a pure tone on each crossing, and the Scalar mark drawn on a chord that resolves only when it fills.</p>
+        </details>
+    </div>
+</section>
+
+<section class="block close ink" id="next" data-block data-name="Next" data-module="mark">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 15 · Scalar</span><span class="hash label" aria-hidden="true"></span></div>
+        <svg class="close-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="mark-fill" d="M4 3h16v3H4zM4 3h3v10.5H4zM4 10.5h16v3H4zM17 10.5h3V21h-3zM4 18h16v3H4z"/><path class="mark-stroke" d="M20 4.5H5.5V12h13v7.5H4" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" pathLength="1"/></svg>
+        <h2 class="h2 head" data-headline>One recorded door in. One verified record out.</h2>
+        <div class="grid close-grid">
+            <nav class="next-links" aria-label="Where to go next">
+                <a href="{$leafBaseUrl}/live/"><span class="h2">Live Assurance Chain</span><span class="label">After release · at work</span></a>
+                <a href="{$leafBaseUrl}/"><span class="h2">Scalar</span><span class="label">The record, the lines, the crossing</span></a>
+            </nav>
+            <div class="next-docs">
+                <p class="label">Scalar Commons, the public network</p>
+                <ul>
+                    <li><a href="https://scalarnet.io/docs/">Documentation</a></li>
+                    <li><a href="https://scalarnet.io/docs/guide/run-a-validator">Run a validator</a></li>
+                    <li><a href="https://scalarnet.io/docs/guide/run-an-agent-public-testnet">Run an agent on the testnet</a></li>
+                    <li><a href="https://scalarnet.io/docs/guide/sdk">The SDK</a></li>
+                    <li><a href="https://explorer.scalarnet.io/">Explorer</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{/block}
