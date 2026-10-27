@@ -1,0 +1,24 @@
+application:
+  environment: !env APP_ENV, prod
+  debug: !env APP_DEBUG, false
+
+render:
+  engine: "latte"
+  directory: "app/Views"
+  cache: "cache/latte"
+  mode: "always"
+
+leaf:
+  name: "Scalar"
+  version: "1.0.0"
+  description: "Blockchain infrastructure for AI agents: every action signed and recorded, and a record that someone who trusts no one involved can check."
+  content_path: "content"
+  output_path: "dist"
+  base_url: ""
+  # Set to the deployed origin (for example https://example.org) to emit canonical
+  # URLs, absolute Open Graph image URLs, sitemap.xml and robots.txt.
+  production_url: ""
+  # The Leaf binary ships a documentation theme whose assets land in dist/ on every
+  # build. This site does not use them, so they are removed after each build.
+  post_build:
+    - [rm, -f, dist/assets/css/app.css, dist/assets/js/copy-code.js, dist/assets/js/lang-switcher.js, dist/assets/js/search.js, dist/assets/js/sidebar.js, dist/assets/js/theme.js, dist/search.json]
