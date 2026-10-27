@@ -1,0 +1,22 @@
+{layout 'layouts/site.latte'}
+{var $ground = 'ink'}
+{var $page = 'missing'}
+{var $path = '/404.html'}
+{var $docTitle = 'Not in the record · Scalar'}
+{var $description = 'This address is not part of the Scalar site.'}
+
+{block content}
+<section class="block missing ink" id="missing" data-block data-name="Not in the record">
+    <div class="wrap">
+        <div class="block-meta"><span class="eyebrow">Block 404</span><span class="hash label" aria-hidden="true"></span></div>
+        <h1 class="h1 head" data-headline>This block is not in the record.</h1>
+        <p class="sub missing-sub">Nothing was ever written at this address, so there is nothing to verify here. The chain continues from the pages that exist.</p>
+        <div class="fig missing-fig" data-fig="missing"></div>
+        <nav class="missing-links" aria-label="Pages that exist">
+            <a class="go" href="{$leafBaseUrl}/">Home<span class="go-trace" aria-hidden="true"><i></i></span></a>
+            <a class="go" href="{$leafBaseUrl}/range/">Range Chain<span class="go-trace" aria-hidden="true"><i></i></span></a>
+            <a class="go" href="{$leafBaseUrl}/live/">Live Assurance Chain<span class="go-trace" aria-hidden="true"><i></i></span></a>
+        </nav>
+    </div>
+</section>
+{/block}

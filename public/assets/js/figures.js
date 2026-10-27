@@ -313,3 +313,17 @@ FIG.outside = (el) => figure(el, 0x0e75de, (P, w, h) => {
     P.text(X(txs[0]) - 6, yT + 26, 'TRANSACTION WINDOW', { cls: 't-3' });
 }, { height: (w) => (w < 640 ? 230 : 250) });
 
+// 404: a chain that continues, and an address that was never written into it.
+FIG.missing = (el) => figure(el, 0x404, (P, w, h) => {
+    const n = w < 640 ? 6 : 12;
+    const yC = 30, gap = (w - 24) / n;
+    const X = (i) => Math.round(12 + (i + 0.5) * gap);
+    const at = Math.floor(n * 0.6);
+    P.seg(0, yC, w, yC, { o: 0.6 });
+    for (let i = 0; i < n; i++) P.sq(X(i), yC, 10);
+    const xm = Math.round((X(at - 1) + X(at)) / 2);
+    P.path([[xm, yC], [xm, yC + 56]], { dash: '2 3', o: 0.7 });
+    P.rect(xm - 8, yC + 56, 16, 16, { dash: '2 2', fill: 'var(--bg)', rx: 1 });
+    P.text(xm + 18, yC + 69, 'THIS ADDRESS · NEVER WRITTEN', { cls: 't-ink', anchor: xm + 260 > w ? 'end' : undefined, attrs: xm + 260 > w ? 'dx="-36"' : '' });
+    P.text(w, yC - 14, 'THE RECORD CONTINUES', { cls: 't-3', anchor: 'end' });
+}, { height: () => 110 });
