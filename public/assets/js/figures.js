@@ -324,9 +324,11 @@ FIG.missing = (el) => figure(el, 0x404, (P, w, h) => {
     const xm = Math.round((X(at - 1) + X(at)) / 2);
     P.path([[xm, yC], [xm, yC + 56]], { dash: '2 3', o: 0.7 });
     P.rect(xm - 8, yC + 56, 16, 16, { dash: '2 2', fill: 'var(--bg)', rx: 1 });
-    P.text(xm + 18, yC + 69, 'THIS ADDRESS · NEVER WRITTEN', { cls: 't-ink', anchor: xm + 260 > w ? 'end' : undefined, attrs: xm + 260 > w ? 'dx="-36"' : '' });
+    // Beside the empty slot where it fits; under it on a phone.
+    if (w < 640) P.text(xm, yC + 98, 'THIS ADDRESS · NEVER WRITTEN', { cls: 't-ink', anchor: 'middle' });
+    else P.text(xm + 18, yC + 69, 'THIS ADDRESS · NEVER WRITTEN', { cls: 't-ink', anchor: xm + 260 > w ? 'end' : undefined, attrs: xm + 260 > w ? 'dx="-36"' : '' });
     P.text(w, yC - 14, 'THE RECORD CONTINUES', { cls: 't-3', anchor: 'end' });
-}, { height: () => 110 });
+}, { height: (w) => (w < 640 ? 136 : 110) });
 
 // ── Live ─────────────────────────────────────────────────────────────────
 // Paper figures for the Live page. Day marks sit above fields whose x axis is still block height;
