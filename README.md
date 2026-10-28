@@ -11,6 +11,8 @@ The presentation site for Scalar: blockchain infrastructure for AI agents.
 
 The site is static. It is built with [Zephyrus Leaf](https://leaf.ophelios.com) (binary tier) from Latte templates, one hand-written stylesheet and a set of small JavaScript modules. There is no bundler, no framework, no tracking, no cookies and no third-party request.
 
+It is published at https://ophelios-studio.github.io/scalar-site/.
+
 ## Run it
 
 Install the Leaf binary once:
@@ -28,12 +30,29 @@ leaf build              # write the static site to dist/
 
 `dist/` is the whole deliverable: upload it to any static host. `404.html` sits at its root for hosts that serve a custom not-found page.
 
-Before a production build, set `production_url` in `config.yml` to the deployed origin. With it set, the build adds canonical URLs, absolute Open Graph image URLs, `sitemap.xml` and `robots.txt`. It is empty today because the origin is not decided yet.
+## Deploy
+
+Where the site is served is read from two environment variables at build time. Both are empty by default, so `leaf dev` and a plain `leaf build` serve from the root.
+
+| Variable | Meaning | Example |
+|---|---|---|
+| `LEAF_BASE_URL` | The path the site is served under, no trailing slash | `/scalar-site` |
+| `LEAF_PRODUCTION_URL` | The public address of the site root, base path included | `https://ophelios-studio.github.io/scalar-site` |
+
+Every link, asset and module path in the templates starts from the base path. With a production URL, the build also adds canonical URLs, absolute Open Graph image URLs, `sitemap.xml` and `robots.txt`.
+
+```sh
+LEAF_BASE_URL=/scalar-site LEAF_PRODUCTION_URL=https://ophelios-studio.github.io/scalar-site leaf build
+```
+
+`.github/workflows/pages.yml` does this on every push to `main` and publishes `dist/` to GitHub Pages: it installs a pinned Leaf release, checks its SHA-256, builds, checks that every page, the sitemap and the Open Graph images exist, and deploys. To serve the site somewhere else, such as a custom domain at its root, change the two variables in the workflow (an empty base path for a root).
 
 ## Structure
 
 ```
-config.yml                 Leaf settings (name, description, production_url, post-build cleanup)
+config.yml                 Leaf settings (name, description, base path and production URL, post-build cleanup)
+.github/workflows/
+  pages.yml                the GitHub Pages build and deploy
 templates/
   layouts/site.latte       the document: head, header, rail, footer, the one script tag
   partials/                meta, header, rail, footer, the mark
@@ -82,7 +101,7 @@ SHA-256 comes from Web Crypto. Outside a secure context (a `file://` preview or 
 To check a hash yourself, open the browser console on any page:
 
 ```js
-const { chain } = await import('/assets/js/record.js');
+const { chain } = await import(new URL('record.js', document.querySelector('script[src$="/site.js"]').src).href);
 const links = await chain([...document.querySelectorAll('[data-block]')]);
 copy(links[0].text);   // the first block's normalized text, now on the clipboard
 links[0].hash;
