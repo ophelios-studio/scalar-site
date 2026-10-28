@@ -1,0 +1,93 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+env:
+  LEAF_VERSION: v0.1.6
+  APP_ENV: production
+  APP_DEBUG: 'false'
+  # A project site is served under the repository name, so the build prefixes every link
+  # with it. The production URL is the public address of the site root, base path included.
+  LEAF_BASE_URL: /scalar-site
+  LEAF_PRODUCTION_URL: https://ophelios-studio.github.io/scalar-site
+
+jobs:
+  build:
+    name: Build with Leaf
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: dom, intl, mbstring, sodium, pdo
+          coverage: none
+
+      - name: Install pinned Leaf release
+        shell: bash
+        run: |
+          curl --fail --silent --show-error --location --retry 3 \
+            "https://github.com/ophelios-studio/zephyrus-leaf-cli/releases/download/${LEAF_VERSION}/leaf-linux-amd64" \
+            --output "$RUNNER_TEMP/leaf"
+          printf '%s  %s\n' \
+            'c4750b1c5754bd57c4dfcf4edb5f42f1c10c91311bd429c7c7813e4121d0e1bf' \
+            "$RUNNER_TEMP/leaf" | sha256sum --check --strict
+          chmod +x "$RUNNER_TEMP/leaf"
+          "$RUNNER_TEMP/leaf" version
+
+      - name: Build the site
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/leaf" build
+          test -s dist/index.html
+          test -s dist/range/index.html
+          test -s dist/live/index.html
+          test -s dist/404.html
+          test -s dist/sitemap.xml
+          test -s dist/robots.txt
+          test -s dist/assets/og/og-home.png
+          test -s dist/assets/og/og-range.png
+          test -s dist/assets/og/og-live.png
+          test -s dist/assets/film/scalar-range-teaser.mp4
+          grep -qF "href=\"${LEAF_BASE_URL}/assets/css/site.css\"" dist/index.html
+          grep -qF "<loc>${LEAF_PRODUCTION_URL}/</loc>" dist/sitemap.xml
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy to Pages
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
