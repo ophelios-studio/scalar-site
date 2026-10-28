@@ -64,7 +64,7 @@ public/
   assets/css/site.css      every style, on custom properties; ink and paper are two token sets
   assets/js/               ES modules, loaded per block (see below)
   assets/fonts/            self-hosted WOFF2 subsets and their license
-  assets/film/             the Range teaser and its poster
+  assets/film/             the Range and Live teasers and their posters
   assets/og/               Open Graph images, one per page
   assets/icons/            SVG and PNG icons; favicon.ico and site.webmanifest sit at the root
 ```
@@ -78,8 +78,9 @@ public/
 | `record.js` | The page's hash chain |
 | `field.js` | The home hero: the line the visitor draws and the agents that cross it |
 | `pace.js`, `hinge.js`, `ledger.js`, `mark.js` | Home: machine speed, the release to paper, the editable record, the closing mark |
-| `zones.js`, `clock.js`, `canaries.js`, `film.js` | Range: the four zones, block height, the fifteen canary lines, the teaser |
+| `zones.js`, `clock.js`, `canaries.js` | Range: the four zones, block height, the fifteen canary lines |
 | `band.js` | Live: the baseline band the reader sets, its alerts and the transaction each one points to |
+| `film.js` | Range and Live: the teaser films, which play only when asked, with sound |
 | `chrome.js` | The header and the record rail, which change ground with the page beneath them |
 
 Every figure is illustrative and says so on the page. The traces come from a seeded generator, so a figure is identical on every load and at every visit; nothing on the site is chain data.

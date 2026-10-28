@@ -65,6 +65,7 @@ jobs:
           test -s dist/assets/og/og-range.png
           test -s dist/assets/og/og-live.png
           test -s dist/assets/film/scalar-range-teaser.mp4
+          test -s dist/assets/film/scalar-live-teaser.mp4
           grep -qF "href=\"${LEAF_BASE_URL}/assets/css/site.css\"" dist/index.html
           grep -qF "<loc>${LEAF_PRODUCTION_URL}/</loc>" dist/sitemap.xml
 
