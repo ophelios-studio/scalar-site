@@ -14,11 +14,18 @@ leaf:
   description: "Blockchain infrastructure for AI agents: every action signed and recorded, and a record that someone who trusts no one involved can check."
   content_path: "content"
   output_path: "dist"
-  base_url: ""
-  # Set to the deployed origin (for example https://example.org) to emit canonical
-  # URLs, absolute Open Graph image URLs, sitemap.xml and robots.txt.
-  production_url: ""
+  # Where the site is served, read from the environment at build time. Both are empty
+  # locally, so `leaf dev` and `leaf build` serve from the root. A deployment sets them:
+  #   LEAF_BASE_URL        the path prefix, for example /scalar-site (no trailing slash)
+  #   LEAF_PRODUCTION_URL  the public address of the site root, base path included, for
+  #                        example https://ophelios-studio.github.io/scalar-site
+  # With a production URL the build adds canonical URLs, absolute Open Graph image URLs,
+  # sitemap.xml and robots.txt.
+  base_url: !env LEAF_BASE_URL, ""
+  production_url: !env LEAF_PRODUCTION_URL, ""
   # The Leaf binary ships a documentation theme whose assets land in dist/ on every
   # build. This site does not use them, so they are removed after each build.
   post_build:
     - [rm, -f, dist/assets/css/app.css, dist/assets/js/copy-code.js, dist/assets/js/lang-switcher.js, dist/assets/js/search.js, dist/assets/js/sidebar.js, dist/assets/js/theme.js, dist/search.json]
+    # The not-found page is served as 404.html, so its /404/ entry leaves the sitemap.
+    - [php, -r, '$f = "dist/sitemap.xml"; if (is_file($f)) file_put_contents($f, preg_replace("#\n\s*<url><loc>[^<]*/404/</loc></url>#", "", file_get_contents($f)));']

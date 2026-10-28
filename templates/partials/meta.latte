@@ -13,15 +13,19 @@
 <link rel="icon" href="{$leafBaseUrl}/assets/icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{$leafBaseUrl}/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="{$leafBaseUrl}/site.webmanifest">
+{* production_url is the public address of the site root, base path included, so page paths join it directly. *}
 {var $origin = $leafProductionUrl ?? ''}
-<link n:if="$origin !== ''" rel="canonical" href="{$origin}{$path}">
+{var $root = $origin !== '' ? $origin : $leafBaseUrl}
+{var $indexed = $page !== 'missing'}
+<meta n:if="!$indexed" name="robots" content="noindex">
+<link n:if="$origin !== '' && $indexed" rel="canonical" href="{$origin}{$path}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scalar">
 <meta property="og:title" content="{$docTitle}">
 <meta property="og:description" content="{$description}">
-<meta property="og:image" content="{$origin}{$leafBaseUrl}/assets/og/{$og}">
+<meta property="og:image" content="{$root}/assets/og/{$og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta n:if="$origin !== ''" property="og:url" content="{$origin}{$path}">
+<meta n:if="$origin !== '' && $indexed" property="og:url" content="{$origin}{$path}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{$origin}{$leafBaseUrl}/assets/og/{$og}">
+<meta name="twitter:image" content="{$root}/assets/og/{$og}">
