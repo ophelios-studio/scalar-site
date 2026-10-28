@@ -259,7 +259,7 @@ export function plate(svg, seed) {
             P.path([[x, y], [x, yTo - s / 2]], { cls: 'sig-s', w: o.w ?? 1.2 });
             P.rect(x - s / 2, yTo - s / 2, s, s, { cls: 'sig-s', w: 1.8, fill: 'var(--bg)', rx: 1 });
             P.sq(x, yTo, Math.max(3, s - 8), { cls: 'sig' });
-            if (o.label) P.text(x + (o.dx ?? s / 2 + 10), yTo + 4 + (o.dy ?? 0), o.label, { cls: 't-sig', anchor: o.anchor, ko: true });
+            if (o.label) P.text(x + (o.dx ?? s / 2 + 10), yTo + 4 + (o.dy ?? 0), o.label, { cls: 't-sig t-id', anchor: o.anchor, ko: true });
         },
         key(x, y, s = 12) { P.sq(x, y, s); P.sq(x, y, Math.max(2, Math.round(s / 3)), { fill: 'var(--bg)' }); },
         days(clk, y, o = {}) {
